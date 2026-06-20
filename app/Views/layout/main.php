@@ -262,6 +262,8 @@
 
             // Override HTMX Confirm to use SweetAlert2
             document.addEventListener('htmx:confirm', function(e) {
+                if (!e.detail.question) return; // Hanya tangani jika ada attribute hx-confirm
+                
                 e.preventDefault();
                 Swal.fire({
                     title: 'Konfirmasi',
