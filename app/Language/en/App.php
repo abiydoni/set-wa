@@ -81,7 +81,9 @@ return [
 
     // New Additions
     'success' => 'Success!',
-    'error_oops' => 'Oops...',
+    'error' => 'Error!',
+    'validation_error' => 'Please check your input',
+    'cannot_delete_app' => 'Cannot delete application because it still contains tasks. Please delete the tasks first.',
     'how_to_run_task' => 'How to Run Task (CRON Job)',
     'run_task_desc' => 'To run a task, call the script <code>run_task.php</code> with the <strong>Task ID</strong>. No physical file is created per task.',
     'app_settings' => 'App Settings',

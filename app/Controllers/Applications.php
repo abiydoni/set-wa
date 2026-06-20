@@ -7,8 +7,8 @@ use App\Models\AppTaskModel;
 
 class Applications extends BaseController
 {
-    protected $appModel;
-    protected $taskModel;
+    protected ApplicationModel $appModel;
+    protected AppTaskModel $taskModel;
 
     public function __construct()
     {
@@ -19,7 +19,13 @@ class Applications extends BaseController
     public function index()
     {
         $data['title'] = 'Applications | WA Gateway';
-        $data['apps'] = $this->appModel->findAll();
+        $apps = $this->appModel->findAll();
+        
+        foreach ($apps as &$app) {
+            $app['task_count'] = $this->taskModel->where('app_id', $app['id'])->countAllResults();
+        }
+        
+        $data['apps'] = $apps;
         
         return view('applications/index', $data);
     }
@@ -62,7 +68,7 @@ class Applications extends BaseController
         return redirect()->to(base_url('applications'))->with('success', 'Aplikasi berhasil ditambahkan!');
     }
 
-    public function edit($id)
+    public function edit(int|string $id)
     {
         $app = $this->appModel->find($id);
         if (!$app) {
@@ -77,7 +83,7 @@ class Applications extends BaseController
         return view('applications/edit', $data);
     }
 
-    public function update($id)
+    public function update(int|string $id)
     {
         $app = $this->appModel->find($id);
         if (!$app) {
@@ -100,10 +106,15 @@ class Applications extends BaseController
         return redirect()->to(base_url('applications'))->with('success', 'Aplikasi berhasil diupdate!');
     }
 
-    public function delete($id)
+    public function delete(int|string $id)
     {
         $app = $this->appModel->find($id);
         if ($app) {
+            $tasksCount = $this->taskModel->where('app_id', $id)->countAllResults();
+            if ($tasksCount > 0) {
+                return redirect()->to(base_url('applications'))->with('error', lang('App.cannot_delete_app'));
+            }
+
             // Hapus DB
             $this->appModel->delete($id);
             return redirect()->to(base_url('applications'))->with('success', 'Aplikasi berhasil dihapus!');
@@ -115,7 +126,7 @@ class Applications extends BaseController
     // TASKS MANAGEMENT
     // ------------------------------------------------------------------------
 
-    public function tasks($appId)
+    public function tasks(int|string $appId)
     {
         $app = $this->appModel->find($appId);
         if (!$app) {
@@ -129,7 +140,7 @@ class Applications extends BaseController
         return view('applications/tasks', $data);
     }
 
-    public function createTask($appId)
+    public function createTask(int|string $appId)
     {
         $app = $this->appModel->find($appId);
         if (!$app) {
@@ -270,7 +281,7 @@ PHP;
         return view('applications/create_task', $data);
     }
 
-    public function saveTask($appId)
+    public function saveTask(int|string $appId)
     {
         $app = $this->appModel->find($appId);
         if (!$app) {
@@ -296,7 +307,7 @@ PHP;
         return redirect()->to(base_url('applications/tasks/' . $appId))->with('success', 'Task berhasil dibuat!');
     }
 
-    public function editTask($id)
+    public function editTask(int|string $id)
     {
         $task = $this->taskModel->find($id);
         if (!$task) {
@@ -314,7 +325,7 @@ PHP;
         return view('applications/edit_task', $data);
     }
 
-    public function updateTask($id)
+    public function updateTask(int|string $id)
     {
         $task = $this->taskModel->find($id);
         if (!$task) {
@@ -339,7 +350,7 @@ PHP;
         return redirect()->to(base_url('applications/tasks/'.$task['app_id']))->with('success', 'Tugas berhasil diupdate!');
     }
 
-    public function runTask($id)
+    public function runTask(int|string $id)
     {
         $task = $this->taskModel->find($id);
         if (!$task) {
@@ -353,7 +364,7 @@ PHP;
         return redirect()->back()->with('success', "Task dieksekusi. Output:\n" . $output);
     }
 
-    public function testQuery($appId)
+    public function testQuery(int|string $appId)
     {
         $app = $this->appModel->find($appId);
         if (!$app) {
@@ -402,7 +413,7 @@ PHP;
         }
     }
 
-    public function testPhp($appId)
+    public function testPhp(int|string $appId)
     {
         $app = $this->appModel->find($appId);
         if (!$app) {
@@ -464,7 +475,7 @@ PHP;
         }
     }
 
-    public function deleteTask($taskId)
+    public function deleteTask(int|string $taskId)
     {
         $task = $this->taskModel->find($taskId);
         if ($task) {

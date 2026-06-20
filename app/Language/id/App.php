@@ -81,7 +81,9 @@ return [
 
     // New Additions
     'success' => 'Berhasil!',
-    'error_oops' => 'Oops...',
+    'error' => 'Kesalahan!',
+    'validation_error' => 'Mohon periksa kembali isian Anda',
+    'cannot_delete_app' => 'Tidak dapat menghapus aplikasi karena masih berisi tugas (task). Harap hapus tugas terlebih dahulu.',
     'how_to_run_task' => 'Cara Menjalankan Task (CRON Job)',
     'run_task_desc' => 'Untuk menjalankan sebuah task, Anda cukup memanggil script <code>run_task.php</code> dan menambahkan <strong>ID Task</strong> di belakangnya. Tidak ada file fisik yang dibuat per task.',
     'app_settings' => 'Pengaturan Aplikasi',

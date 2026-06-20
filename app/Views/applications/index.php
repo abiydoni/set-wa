@@ -43,9 +43,15 @@
                             <a href="<?= base_url('applications/edit/'.$app['id']) ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 p-2 transition-colors" title="<?= lang('App.edit') ?>">
                                 <i class="fa-solid fa-edit"></i>
                             </a>
-                            <a href="<?= base_url('applications/delete/'.$app['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" onclick="return confirm('<?= lang('App.confirm_delete') ?>')" title="<?= lang('App.delete') ?>">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
+                            <?php if ($app['task_count'] > 0): ?>
+                                <button type="button" class="text-gray-400 p-2 cursor-not-allowed opacity-50" title="<?= lang('App.cannot_delete_app') ?>" onclick="alert('<?= lang('App.cannot_delete_app') ?>')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            <?php else: ?>
+                                <a href="<?= base_url('applications/delete/'.$app['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" onclick="return confirm('<?= lang('App.confirm_delete') ?>')" title="<?= lang('App.delete') ?>">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
