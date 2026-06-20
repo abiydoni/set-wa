@@ -28,8 +28,8 @@
     <div>
         <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300"><?= lang('App.how_to_run_task') ?></h3>
         <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm"><?= lang('App.run_task_desc') ?></p>
-        <p class="text-blue-700 dark:text-blue-200 mt-2 text-sm font-mono bg-blue-100 dark:bg-blue-800/50 px-3 py-2 rounded">
-            php <?= ROOTPATH ?>apps/run_task.php [ID_TASK]
+        <p class="text-blue-700 dark:text-blue-200 mt-2 text-sm font-mono bg-blue-100 dark:bg-blue-800/50 px-3 py-2 rounded overflow-x-auto whitespace-nowrap">
+            /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php [ID_TASK]
         </p>
     </div>
 </div>
@@ -71,8 +71,8 @@
                             <?= esc($task['wa_id']) ?>
                         </td>
                         <td class="p-4 text-gray-600 dark:text-gray-400">
-                            <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs font-mono border border-gray-200 dark:border-gray-600">
-                                php run_task.php <?= esc($task['id']) ?>
+                            <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs font-mono border border-gray-200 dark:border-gray-600 truncate inline-block max-w-[250px]" title="/usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php <?= esc($task['id']) ?>">
+                                /usr/local/bin/ea-php83 ... run_task.php <?= esc($task['id']) ?>
                             </span>
                         </td>
                         <td class="p-4 text-center space-x-2 whitespace-nowrap">

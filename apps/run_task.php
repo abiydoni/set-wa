@@ -137,7 +137,7 @@ if ($task['task_type'] === 'php') {
     }
     
     if (empty($message)) {
-        die("Error: PHP Script tidak menghasilkan teks apa pun (variabel \$pesan kosong).\n");
+        die("✅ Eksekusi selesai. Tidak ada pesan yang perlu dikirim (variabel \$pesan kosong/tidak ada data).\n");
     }
     
 } else {
