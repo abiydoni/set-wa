@@ -127,4 +127,11 @@ return [
     'body_msg' => 'Body Message per Row (Opsional)',
     'footer_msg' => 'Footer Message (Opsional)',
     'test_php_result' => 'Hasil Test PHP Script',
+    
+    // Cron Info
+    'recommended_log' => '(Disarankan menggunakan output log):',
+    'cron_example' => 'Contoh (Jika ID Task adalah 1):',
+    'short_explanation' => 'Penjelasan Singkat:',
+    'id_task_explanation' => 'adalah angka ID yang bisa Anda lihat pada kolom paling kiri di tabel bawah (contoh: #1, #2).',
+    'php_version_explanation' => 'ditulis karena aplikasi ini membutuhkan mesin eksekusi PHP versi 8.3 (sesuai spesifikasi CodeIgniter 4 yang Anda gunakan).',
 ];

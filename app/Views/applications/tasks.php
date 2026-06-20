@@ -27,20 +27,20 @@
     <i class="fa-solid fa-circle-info text-blue-500 dark:text-blue-400 text-2xl mr-4 mt-1"></i>
     <div>
         <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300"><?= lang('App.how_to_run_task') ?></h3>
-        <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm"><?= lang('App.run_task_desc') ?> (Disarankan menggunakan output log):</p>
+        <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm"><?= lang('App.run_task_desc') ?> <?= lang('App.recommended_log') ?></p>
         <p class="text-blue-700 dark:text-blue-200 mt-2 text-sm font-mono bg-blue-100 dark:bg-blue-800/50 px-3 py-2 rounded whitespace-normal break-all">
             /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php [ID_TASK] &gt;&gt; <?= rtrim(ROOTPATH, '/') ?>/apps/log/log_[ID_TASK].txt 2&gt;&amp;1
         </p>
-        <p class="text-blue-600 dark:text-blue-300 mt-3 text-sm font-semibold">Contoh (Jika ID Task adalah 1):</p>
+        <p class="text-blue-600 dark:text-blue-300 mt-3 text-sm font-semibold"><?= lang('App.cron_example') ?></p>
         <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm font-mono bg-white/50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-700 px-3 py-2 rounded whitespace-normal break-all">
             /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php 1 &gt;&gt; <?= rtrim(ROOTPATH, '/') ?>/apps/log/log_1.txt 2&gt;&amp;1
         </p>
         
         <div class="mt-4 text-xs text-blue-700 dark:text-blue-300 bg-blue-100/50 dark:bg-blue-800/30 p-3 rounded-lg">
-            <p class="font-semibold mb-1"><i class="fa-solid fa-circle-question mr-1"></i> Penjelasan Singkat:</p>
+            <p class="font-semibold mb-1"><i class="fa-solid fa-circle-question mr-1"></i> <?= lang('App.short_explanation') ?></p>
             <ul class="list-disc list-inside space-y-1 ml-1">
-                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">[ID_TASK]</strong> adalah angka ID yang bisa Anda lihat pada kolom paling kiri di tabel bawah (contoh: #1, #2).</li>
-                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">ea-php83</strong> ditulis karena aplikasi ini membutuhkan mesin eksekusi PHP versi 8.3 (sesuai spesifikasi CodeIgniter 4 yang Anda gunakan).</li>
+                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">[ID_TASK]</strong> <?= lang('App.id_task_explanation') ?></li>
+                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">ea-php83</strong> <?= lang('App.php_version_explanation') ?></li>
             </ul>
         </div>
     </div>

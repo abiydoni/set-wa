@@ -127,4 +127,11 @@ return [
     'body_msg' => 'Body Message per Row (Optional)',
     'footer_msg' => 'Footer Message (Optional)',
     'test_php_result' => 'PHP Script Test Result',
+    
+    // Cron Info
+    'recommended_log' => '(Recommended to use output log):',
+    'cron_example' => 'Example (If Task ID is 1):',
+    'short_explanation' => 'Brief Explanation:',
+    'id_task_explanation' => 'is the ID number you can see in the leftmost column in the table below (e.g., #1, #2).',
+    'php_version_explanation' => 'is written because this application requires the PHP 8.3 execution engine (as per the CodeIgniter 4 specification you are using).',
 ];
