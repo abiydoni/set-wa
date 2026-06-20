@@ -6,14 +6,18 @@
  * php apps/run_task.php [task_id]
  */
 
-if (php_sapi_name() !== 'cli' && !isset($_GET['id'])) {
-    die("Harus dijalankan via CLI atau berikan parameter ?id=...\n");
+$taskId = null;
+
+if (isset($_SERVER['argv']) && isset($_SERVER['argv'][1])) {
+    $taskId = $_SERVER['argv'][1];
+} elseif (isset($argv) && isset($argv[1])) {
+    $taskId = $argv[1];
+} elseif (isset($_GET['id'])) {
+    $taskId = $_GET['id'];
 }
 
-$taskId = (php_sapi_name() === 'cli') ? ($argv[1] ?? null) : ($_GET['id'] ?? null);
-
 if (!$taskId) {
-    die("Error: Task ID tidak diberikan.\n");
+    die("Error: Harus dijalankan via CLI (php run_task.php [ID]) atau berikan parameter ?id=[ID] via URL browser.\n");
 }
 
 // 1. Koneksi ke Database Master (Dashboard) dengan membaca .env CodeIgniter
