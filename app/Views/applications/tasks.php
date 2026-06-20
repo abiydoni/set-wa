@@ -27,10 +27,22 @@
     <i class="fa-solid fa-circle-info text-blue-500 dark:text-blue-400 text-2xl mr-4 mt-1"></i>
     <div>
         <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300"><?= lang('App.how_to_run_task') ?></h3>
-        <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm"><?= lang('App.run_task_desc') ?></p>
+        <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm"><?= lang('App.run_task_desc') ?> (Disarankan menggunakan output log):</p>
         <p class="text-blue-700 dark:text-blue-200 mt-2 text-sm font-mono bg-blue-100 dark:bg-blue-800/50 px-3 py-2 rounded overflow-x-auto whitespace-nowrap">
-            /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php [ID_TASK]
+            /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php [ID_TASK] &gt;&gt; <?= rtrim(ROOTPATH, '/') ?>/apps/log/log_[ID_TASK].txt 2&gt;&amp;1
         </p>
+        <p class="text-blue-600 dark:text-blue-300 mt-3 text-sm font-semibold">Contoh (Jika ID Task adalah 1):</p>
+        <p class="text-blue-700 dark:text-blue-200 mt-1 text-sm font-mono bg-white/50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-700 px-3 py-2 rounded overflow-x-auto whitespace-nowrap">
+            /usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php 1 &gt;&gt; <?= rtrim(ROOTPATH, '/') ?>/apps/log/log_1.txt 2&gt;&amp;1
+        </p>
+        
+        <div class="mt-4 text-xs text-blue-700 dark:text-blue-300 bg-blue-100/50 dark:bg-blue-800/30 p-3 rounded-lg">
+            <p class="font-semibold mb-1"><i class="fa-solid fa-circle-question mr-1"></i> Penjelasan Singkat:</p>
+            <ul class="list-disc list-inside space-y-1 ml-1">
+                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">[ID_TASK]</strong> adalah angka ID yang bisa Anda lihat pada kolom paling kiri di tabel bawah (contoh: #1, #2).</li>
+                <li><strong class="font-mono bg-white/50 dark:bg-blue-900/50 px-1 rounded">ea-php83</strong> ditulis karena aplikasi ini membutuhkan mesin eksekusi PHP versi 8.3 (sesuai spesifikasi CodeIgniter 4 yang Anda gunakan).</li>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -71,8 +83,8 @@
                             <?= esc($task['wa_id']) ?>
                         </td>
                         <td class="p-4 text-gray-600 dark:text-gray-400">
-                            <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs font-mono border border-gray-200 dark:border-gray-600 truncate inline-block max-w-[250px]" title="/usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php <?= esc($task['id']) ?>">
-                                /usr/local/bin/ea-php83 ... run_task.php <?= esc($task['id']) ?>
+                            <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs font-mono border border-gray-200 dark:border-gray-600 truncate inline-block max-w-[250px]" title="/usr/local/bin/ea-php83 <?= ROOTPATH ?>apps/run_task.php <?= esc($task['id']) ?> >> <?= rtrim(ROOTPATH, '/') ?>/apps/log/log_<?= esc($task['id']) ?>.txt 2>&1">
+                                /usr/local/bin/ea-php83 ... run_task.php <?= esc($task['id']) ?> >> ...
                             </span>
                         </td>
                         <td class="p-4 text-center space-x-2 whitespace-nowrap">
