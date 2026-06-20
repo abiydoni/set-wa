@@ -1,4 +1,10 @@
 <?= $this->extend('layout/main') ?>
+<?php
+/**
+ * @var array $app
+ * @var array $tasks
+ */
+?>
 
 <?= $this->section('content') ?>
 <div class="flex justify-between items-end mb-8">
@@ -76,7 +82,7 @@
                             <a href="<?= base_url('applications/tasks/edit/'.$task['id']) ?>" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 p-2 transition-colors" title="<?= lang('App.edit') ?>">
                                 <i class="fa-solid fa-edit"></i>
                             </a>
-                            <a href="<?= base_url('applications/tasks/delete/'.$task['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" onclick="return confirm('<?= lang('App.confirm_delete') ?>')" title="<?= lang('App.delete') ?>">
+                            <a href="<?= base_url('applications/tasks/delete/'.$task['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" hx-confirm="<?= lang('App.confirm_delete') ?>" title="<?= lang('App.delete') ?>">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </td>

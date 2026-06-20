@@ -46,9 +46,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
 
-    <!-- NProgress & HTMX & CodeMirror -->
+    <!-- NProgress & HTMX & SweetAlert2 & CodeMirror -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/matchbrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
@@ -258,6 +259,26 @@
             }
             
             if (headerThemeToggleBtn) headerThemeToggleBtn.addEventListener('click', toggleTheme);
+
+            // Override HTMX Confirm to use SweetAlert2
+            document.addEventListener('htmx:confirm', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: e.detail.question,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#ef4444',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Ya, Lanjutkan',
+                    cancelButtonText: 'Batal',
+                    customClass: { popup: 'rounded-2xl' }
+                }).then(function(result) {
+                    if(result.isConfirmed) {
+                        e.detail.issueRequest(true);
+                    }
+                });
+            });
 
             // Flash message handling
             <?php if (session()->getFlashdata('success')) : ?>

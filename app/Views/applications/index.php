@@ -44,11 +44,11 @@
                                 <i class="fa-solid fa-edit"></i>
                             </a>
                             <?php if ($app['task_count'] > 0): ?>
-                                <button type="button" class="text-gray-400 p-2 cursor-not-allowed opacity-50" title="<?= lang('App.cannot_delete_app') ?>" onclick="alert('<?= lang('App.cannot_delete_app') ?>')">
+                                <button type="button" class="text-gray-400 p-2 cursor-not-allowed opacity-50" title="<?= lang('App.cannot_delete_app') ?>" onclick="Swal.fire({icon: 'error', title: 'Oops...', text: '<?= lang('App.cannot_delete_app') ?>', confirmButtonColor: '#3b82f6', customClass: { popup: 'rounded-2xl' }})">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             <?php else: ?>
-                                <a href="<?= base_url('applications/delete/'.$app['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" onclick="return confirm('<?= lang('App.confirm_delete') ?>')" title="<?= lang('App.delete') ?>">
+                                <a href="<?= base_url('applications/delete/'.$app['id']) ?>" class="text-red-400 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300 p-2 transition-colors" hx-confirm="<?= lang('App.confirm_delete') ?>" title="<?= lang('App.delete') ?>">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             <?php endif; ?>

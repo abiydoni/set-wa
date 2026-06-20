@@ -296,7 +296,7 @@ body.is-fullscreen .z-10 {
         const resultsDiv = document.getElementById('query_results');
         
         if (!query.trim()) {
-            alert('Query kosong!');
+            Swal.fire({icon: 'warning', title: 'Oops...', text: 'Query kosong!', confirmButtonColor: '#3b82f6', customClass: { popup: 'rounded-2xl' }});
             return;
         }
 
@@ -359,7 +359,7 @@ body.is-fullscreen .z-10 {
         const phpScript = document.getElementById('php_script').value;
         
         if (!phpScript.trim()) {
-            alert('PHP Script kosong!');
+            Swal.fire({icon: 'warning', title: 'Oops...', text: 'PHP Script kosong!', confirmButtonColor: '#3b82f6', customClass: { popup: 'rounded-2xl' }});
             return;
         }
 
