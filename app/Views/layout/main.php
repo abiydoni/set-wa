@@ -114,7 +114,7 @@
         }
     </style>
 </head>
-<body hx-boost="true" class="text-gray-800 dark:text-gray-200 bg-[#f8fafc] dark:bg-dark-bg flex h-screen overflow-hidden transition-colors duration-300">
+<body hx-boost="true" class="text-gray-800 dark:text-gray-200 bg-[#f8fafc] dark:bg-dark-bg flex h-[100dvh] overflow-hidden transition-colors duration-300">
 
     <!-- Sidebar -->
     <aside class="w-64 bg-white dark:bg-dark-panel shadow-xl hidden md:flex flex-col z-20 transition-colors duration-300">
@@ -146,7 +146,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+    <div class="flex-1 flex flex-col h-[100dvh] overflow-hidden relative">
         
         <!-- Top Header -->
         <header class="bg-white/80 dark:bg-dark-panel/80 backdrop-blur-md shadow-sm p-4 flex justify-between items-center z-20 transition-colors duration-300 relative">
@@ -200,7 +200,7 @@
         </div>
 
         <!-- Content Area -->
-        <main class="flex-1 overflow-x-hidden overflow-y-auto p-4 md:p-8 relative">
+        <main class="flex-1 overflow-x-hidden overflow-y-auto p-4 md:p-8 pb-24 md:pb-24 relative">
             <!-- Decorative background blob -->
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-100 opacity-50 blur-3xl z-0 pointer-events-none"></div>
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-green-100 opacity-50 blur-3xl z-0 pointer-events-none"></div>

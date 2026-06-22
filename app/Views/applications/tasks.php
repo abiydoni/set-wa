@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="glass rounded-2xl shadow-sm overflow-hidden">
+<div class="glass rounded-2xl shadow-sm overflow-hidden mb-12">
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>

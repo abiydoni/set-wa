@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="glass rounded-2xl shadow-sm overflow-hidden max-w-3xl">
+<div class="glass rounded-2xl shadow-sm overflow-hidden max-w-3xl mb-12">
     <div class="p-6 bg-white dark:bg-dark-panel bg-opacity-50 dark:bg-opacity-50">
         <form action="<?= base_url('applications/update/' . $app['id']) ?>" method="POST" class="space-y-6">
             <div class="space-y-4">

@@ -72,7 +72,7 @@ body.is-fullscreen .z-10 {
 <div class="w-full">
     <!-- Form Container -->
     <div>
-        <div class="glass rounded-2xl shadow-sm overflow-hidden mb-6">
+        <div class="glass rounded-2xl shadow-sm overflow-hidden mb-12">
             <div class="p-6 bg-white dark:bg-dark-panel bg-opacity-50 dark:bg-opacity-50">
                 <form action="<?= base_url('applications/tasks/update/' . $task['id']) ?>" method="POST" class="space-y-6">
                     
