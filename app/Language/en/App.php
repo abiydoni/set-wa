@@ -134,4 +134,11 @@ return [
     'short_explanation' => 'Brief Explanation:',
     'id_task_explanation' => 'is the ID number you can see in the leftmost column in the table below (e.g., #1, #2).',
     'php_version_explanation' => 'is written because this application requires the PHP 8.3 execution engine (as per the CodeIgniter 4 specification you are using).',
+    
+    // Auth
+    'welcome_back' => 'Welcome Back',
+    'please_login' => 'Please login to your account',
+    'username' => 'Username',
+    'password' => 'Password',
+    'sign_in' => 'Sign In',
 ];

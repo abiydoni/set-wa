@@ -139,8 +139,18 @@
             <a href="<?= base_url('settings') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium <?= $isSettings ? 'active text-white dark:text-white' : 'text-gray-600 dark:text-gray-400' ?>">
                 <i class="fa-solid fa-gear w-6"></i> <?= lang('App.settings') ?>
             </a>
+            <?php $isUsers = strpos($currentUrl, '/users') !== false; ?>
+            <a href="<?= base_url('users') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium <?= $isUsers ? 'active text-white dark:text-white' : 'text-gray-600 dark:text-gray-400' ?>">
+                <i class="fa-solid fa-users w-6"></i> Users
+            </a>
+            
+            <div class="pt-4 mt-4 border-t border-gray-100 dark:border-dark-border">
+                <a href="<?= base_url('logout') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                    <i class="fa-solid fa-sign-out-alt w-6"></i> Logout
+                </a>
+            </div>
         </nav>
-        <div class="p-4 border-t border-gray-100 dark:border-dark-border text-center text-sm text-gray-500 dark:text-gray-400">
+        <div class="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
             &copy; <?= date('Y') ?> Appsbee
         </div>
     </aside>
@@ -195,6 +205,14 @@
             <a href="<?= base_url('settings') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium <?= $isSettings ? 'active text-white dark:text-white' : 'text-gray-600 dark:text-gray-400' ?>">
                 <i class="fa-solid fa-gear w-6"></i> <?= lang('App.settings') ?>
             </a>
+            <a href="<?= base_url('users') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium <?= $isUsers ? 'active text-white dark:text-white' : 'text-gray-600 dark:text-gray-400' ?>">
+                <i class="fa-solid fa-users w-6"></i> Users
+            </a>
+            <div class="pt-2 mt-2 border-t border-gray-100 dark:border-dark-border">
+                <a href="<?= base_url('logout') ?>" class="sidebar-item flex items-center px-4 py-3 rounded-xl font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                    <i class="fa-solid fa-sign-out-alt w-6"></i> Logout
+                </a>
+            </div>
                 </nav>
             </div>
         </div>
